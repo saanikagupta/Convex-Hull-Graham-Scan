@@ -16,9 +16,6 @@ if __name__ == "__main__":
 
     # convert image to gray scale
     gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-    #cv2.imshow("Gray",gray)
-    # blur the image
-    #blur = cv2.blur(gray, (3, 3))
     
     # binary thresholding of the image
     ret, thresh = cv2.threshold(gray,99 , 255, cv2.THRESH_BINARY)
@@ -36,13 +33,10 @@ if __name__ == "__main__":
     
     # create an empty black image
     drawing = np.zeros((thresh.shape[0], thresh.shape[1], 3), np.uint8)
-    #cv2.imshow("Drawing",drawing)
+
     # draw contours and hull points
     for i in range(len(contours)):
-        #color_contours = (0, 255, 0) # color for contours
         color = (255, 255, 255) # color for convex hull
-        # draw contours
-        #cv2.drawContours(drawing, contours, i, color_contours, 2, 8, hierarchy)
         # draw convex hull
         cv2.drawContours(drawing, hull, i, color, 2, 8)
 
